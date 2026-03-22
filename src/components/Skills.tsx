@@ -98,17 +98,17 @@ const Skills = () => {
                   return (
                     <div key={skill.name}>
                       {/* NAME + LEVEL */}
-                      <div className="flex items-center justify-between mb-1.5">
+                      <div className="flex items-center justify-between mb-2">
                         <span className="text-sm text-foreground">
                           {skill.name}
                         </span>
 
                         <span
-                          className={`text-xs font-medium ${
+                          className={`text-xs font-semibold ${
                             isAdvanced
-                              ? "text-green-500"
+                              ? "bg-gradient-to-r from-purple-400 to-pink-500 bg-clip-text text-transparent"
                               : isIntermediate
-                              ? "text-yellow-400"
+                              ? "bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent"
                               : "text-muted-foreground"
                           }`}
                         >
@@ -117,7 +117,7 @@ const Skills = () => {
                       </div>
 
                       {/* PROGRESS BAR */}
-                      <div className="h-1.5 bg-muted rounded-full overflow-hidden">
+                      <div className="h-2 bg-muted rounded-full overflow-hidden">
                         <motion.div
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.percent}%` }}
@@ -125,9 +125,9 @@ const Skills = () => {
                           transition={{ duration: 0.8, delay: 0.2 }}
                           className={`h-full rounded-full ${
                             isAdvanced
-                              ? "bg-green-500 shadow-[0_0_8px_#22c55e]"
+                              ? "bg-gradient-to-r from-purple-500 to-pink-500 shadow-[0_0_12px_rgba(168,85,247,0.6)]"
                               : isIntermediate
-                              ? "bg-yellow-400 shadow-[0_0_8px_#facc15]"
+                              ? "bg-gradient-to-r from-blue-400 to-cyan-400 shadow-[0_0_12px_rgba(59,130,246,0.6)]"
                               : "bg-white"
                           }`}
                         />
