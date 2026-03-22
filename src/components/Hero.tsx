@@ -12,23 +12,21 @@ const Hero = () => {
 
   useEffect(() => {
     const currentRole = roles[roleIndex];
-    const timeout = setTimeout(
-      () => {
-        if (!isDeleting) {
-          setText(currentRole.slice(0, text.length + 1));
-          if (text.length + 1 === currentRole.length) {
-            setTimeout(() => setIsDeleting(true), 1500);
-          }
-        } else {
-          setText(currentRole.slice(0, text.length - 1));
-          if (text.length === 0) {
-            setIsDeleting(false);
-            setRoleIndex((prev) => (prev + 1) % roles.length);
-          }
+    const timeout = setTimeout(() => {
+      if (!isDeleting) {
+        setText(currentRole.slice(0, text.length + 1));
+        if (text.length + 1 === currentRole.length) {
+          setTimeout(() => setIsDeleting(true), 1500);
         }
-      },
-      isDeleting ? 40 : 80
-    );
+      } else {
+        setText(currentRole.slice(0, text.length - 1));
+        if (text.length === 0) {
+          setIsDeleting(false);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
+        }
+      }
+    }, isDeleting ? 40 : 80);
+
     return () => clearTimeout(timeout);
   }, [text, isDeleting, roleIndex]);
 
@@ -36,7 +34,8 @@ const Hero = () => {
     <section id="home" className="min-h-screen flex items-center relative pt-16">
       <div className="section-container w-full">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
-          {/* Left */}
+
+          {/* LEFT SIDE */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -61,58 +60,68 @@ const Hero = () => {
 
             <p className="text-sm md:text-base text-muted-foreground max-w-lg mb-8 leading-relaxed">
               I specialize in building <span className="text-foreground font-medium">data-driven solutions</span> and{" "}
-              <span className="text-foreground font-medium">analytical dashboards</span>. Transforming raw data into actionable insights.
+              <span className="text-foreground font-medium">analytical dashboards</span>.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 mb-8">
               <motion.a
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 href="#projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-foreground text-background font-medium text-sm hover:opacity-90 transition"
               >
                 EXPLORE WORK <ArrowRight size={16} />
               </motion.a>
 
               <div className="flex items-center gap-3">
-                <motion.a whileHover={{ scale: 1.1 }} href="https://github.com/abhirambirakati" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all" aria-label="GitHub">
+                <motion.a whileHover={{ scale: 1.1 }} href="https://github.com/abhirambirakati" target="_blank" className="p-3 rounded-full border hover:text-foreground transition">
                   <Github size={18} />
                 </motion.a>
-                <motion.a whileHover={{ scale: 1.1 }} href="https://www.linkedin.com/in/birakatiabhiram/" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all" aria-label="LinkedIn">
+
+                <motion.a whileHover={{ scale: 1.1 }} href="https://www.linkedin.com/in/birakatiabhiram/" target="_blank" className="p-3 rounded-full border hover:text-foreground transition">
                   <Linkedin size={18} />
                 </motion.a>
-                <motion.a whileHover={{ scale: 1.1 }} href="mailto:abhirambirakati18@gmail.com" className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all" aria-label="Email">
+
+                <motion.a whileHover={{ scale: 1.1 }} href="mailto:abhirambirakati18@gmail.com" className="p-3 rounded-full border hover:text-foreground transition">
                   <Mail size={18} />
                 </motion.a>
-                <motion.a whileHover={{ scale: 1.1 }} href="/resume/AbhiramResume.pdf" target="_blank" rel="noopener noreferrer" className="p-3 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-muted-foreground transition-all" aria-label="Download CV">
+
+                <motion.a whileHover={{ scale: 1.1 }} href="/resume/AbhiramResume.pdf" target="_blank" className="p-3 rounded-full border hover:text-foreground transition">
                   <Download size={18} />
                 </motion.a>
               </div>
             </div>
           </motion.div>
 
-          {/* Right - Profile Image */}
+          {/* RIGHT SIDE - PROFILE IMAGE */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.6 }}
             className="flex-shrink-0"
           >
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96">
-              <div className="w-full h-full rounded-full overflow-hidden border-2 border-border glow-circle">
-                <img src={profileImg} alt="Birakati Abhiram" className="w-full h-full object-cover" />
-              </div>
+            <div className="relative flex items-center justify-center">
+
+              {/* GLOW EFFECT */}
+              <div className="absolute w-72 h-72 rounded-full bg-purple-500 opacity-20 blur-3xl"></div>
+
+              {/* IMAGE */}
+              <img
+                src={profileImg}
+                alt="Abhiram"
+                className="relative w-64 h-64 md:w-80 md:h-80 object-cover rounded-full border-4 border-white shadow-2xl hover:scale-105 transition duration-300"
+              />
             </div>
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
+        {/* SCROLL ICON */}
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="hidden lg:flex justify-center mt-16"
         >
-          <a href="#about" className="p-2 rounded-full border border-border text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#about" className="p-2 rounded-full border hover:text-foreground transition">
             <ChevronDown size={20} />
           </a>
         </motion.div>
