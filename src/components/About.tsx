@@ -71,7 +71,7 @@ const About = () => {
               {/* CARD 1 */}
               <div className="bg-background p-4 rounded-xl border border-border hover:scale-[1.02] transition">
                 <p className="text-xs text-muted-foreground">Projects Built</p>
-                <h2 className="text-xl font-bold text-foreground mt-1">10+</h2>
+                <h2 className="text-xl font-bold text-foreground mt-1">4+</h2>
               </div>
 
               {/* CARD 2 */}
