@@ -14,10 +14,12 @@ const About = () => {
           className="mb-12"
         >
           <p className="section-label">About Me</p>
-          <h2 className="section-title">
-            THE ARCHITECT<br />
-            <span className="text-dim">OF DATA</span>
-          </h2>
+          <h2 className="section-title leading-tight">
+ 	  ABOUT ME <br />
+  	 <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+   	 TURNING DATA INTO INSIGHTS
+  	 </span>
+         </h2>
         </motion.div>
 
         {/* CONTENT */}
