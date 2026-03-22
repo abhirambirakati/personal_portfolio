@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
+
 const About = () => {
   return (
     <section id="about" className="py-24">
       <div className="section-container">
+
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +20,10 @@ const About = () => {
           </h2>
         </motion.div>
 
+        {/* CONTENT */}
         <div className="grid lg:grid-cols-2 gap-10">
+
+          {/* LEFT TEXT */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -29,6 +35,7 @@ const About = () => {
               Data Analysis, Python Development, and Data Visualization. I have experience building analytical tools 
               and dashboards using Python, Excel, and modern data analysis libraries.
             </p>
+
             <p className="text-muted-foreground leading-relaxed">
               My academic journey has helped me gain strong foundations in Data Structures and Algorithms, 
               Statistical Analysis, and Data-Driven Decision Making. I enjoy working on projects that transform 
@@ -36,22 +43,46 @@ const About = () => {
             </p>
           </motion.div>
 
+          {/* RIGHT DASHBOARD UI */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="card-dark p-5 overflow-hidden"
+            className="bg-card p-6 rounded-2xl shadow-xl border border-border w-full max-w-md"
           >
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-3 h-3 rounded-full bg-destructive/80" />
-              <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
-              <div className="w-3 h-3 rounded-full bg-green-500/80" />
+
+            <h3 className="text-sm text-muted-foreground mb-4">
+              Analytics Overview
+            </h3>
+
+            <div className="space-y-4">
+
+              {/* CARD 1 */}
+              <div className="bg-background p-4 rounded-lg border border-border">
+                <p className="text-xs text-muted-foreground">Projects Built</p>
+                <h2 className="text-xl font-bold text-foreground">10+</h2>
+              </div>
+
+              {/* CARD 2 */}
+              <div className="bg-background p-4 rounded-lg border border-border">
+                <p className="text-xs text-muted-foreground">Core Skills</p>
+                <h2 className="text-green-500 font-bold">
+                  Python, Excel, ML 📊
+                </h2>
+              </div>
+
+              {/* CARD 3 */}
+              <div className="bg-background p-4 rounded-lg border border-border">
+                <p className="text-xs text-muted-foreground">Focus</p>
+                <p className="text-sm text-foreground">
+                  Transforming raw data into meaningful insights.
+                </p>
+              </div>
+
             </div>
-            <pre className="font-mono text-xs md:text-sm text-muted-foreground leading-relaxed overflow-x-auto">
-              <code>{codeSnippet}</code>
-            </pre>
           </motion.div>
+
         </div>
       </div>
     </section>
