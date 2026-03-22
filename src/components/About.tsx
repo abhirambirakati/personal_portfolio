@@ -1,19 +1,4 @@
 import { motion } from "framer-motion";
-
-const codeSnippet = `class Developer {
-  constructor() {
-    this.name = "Abhiram";
-    this.focus = "Data Analysis";
-    this.skills = ["Python", "Excel", "ML"];
-  }
-  
-  analyze() {
-    while(true) {
-      this.build("Data Insights");
-    }
-  }
-}`;
-
 const About = () => {
   return (
     <section id="about" className="py-24">
