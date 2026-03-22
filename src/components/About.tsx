@@ -13,17 +13,19 @@ const About = () => {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
+          {/* Small Label */}
           <p className="section-label">About Me</p>
-          <h2 className="section-title leading-tight">
- 	  ABOUT ME <br />
-  	 <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
-   	 TURNING DATA INTO INSIGHTS
-  	 </span>
-         </h2>
+
+          {/* Main Heading */}
+          <h2 className="section-title leading-tight mt-2">
+            <span className="bg-gradient-to-r from-purple-400 to-blue-500 bg-clip-text text-transparent">
+              TURNING DATA INTO INSIGHTS
+            </span>
+          </h2>
         </motion.div>
 
         {/* CONTENT */}
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
 
           {/* LEFT TEXT */}
           <motion.div
@@ -33,15 +35,15 @@ const About = () => {
             transition={{ duration: 0.5 }}
           >
             <p className="text-muted-foreground leading-relaxed mb-6">
-              I am a Computer Science and Engineering student at Lovely Professional University with strong interests in 
-              Data Analysis, Python Development, and Data Visualization. I have experience building analytical tools 
-              and dashboards using Python, Excel, and modern data analysis libraries.
+              I am a Computer Science and Engineering student at Lovely Professional University, passionate about 
+              Data Analysis and Python Development. I focus on extracting meaningful insights from data and building 
+              analytical solutions that support smart decision-making.
             </p>
 
             <p className="text-muted-foreground leading-relaxed">
-              My academic journey has helped me gain strong foundations in Data Structures and Algorithms, 
-              Statistical Analysis, and Data-Driven Decision Making. I enjoy working on projects that transform 
-              raw data into actionable insights and visual stories.
+              With a strong foundation in Data Structures, Algorithms, and Statistics, I enjoy working on projects 
+              involving data exploration, visualization, and problem-solving. My goal is to transform complex data 
+              into simple, actionable insights that create real-world impact.
             </p>
           </motion.div>
 
