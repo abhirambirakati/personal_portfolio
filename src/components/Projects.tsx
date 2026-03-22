@@ -78,7 +78,7 @@ const projects = [
       "REST API backend integration",
     ],
     tech: ["Django", "Python", "PostgreSQL", "JavaScript"],
-    github: "https://github.com/abhirambirakati",
+    github: "https://github.com/abhirambirakati/djangoFinalProject-PEP-",
     live: "#",
   },
 ];
