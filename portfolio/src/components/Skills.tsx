@@ -1,0 +1,112 @@
+import { motion } from "framer-motion";
+
+interface SkillItem {
+  name: string;
+  level: string;
+  percent: number;
+}
+
+const skillCategories: { title: string; skills: SkillItem[] }[] = [
+  {
+    title: "Programming Languages",
+    skills: [
+      { name: "Python", level: "Advanced", percent: 90 },
+      { name: "C++", level: "Intermediate", percent: 65 },
+      { name: "Java", level: "Intermediate", percent: 60 },
+      { name: "JavaScript", level: "Intermediate", percent: 65 },
+    ],
+  },
+  {
+    title: "Data Science & ML",
+    skills: [
+      { name: "NumPy", level: "Advanced", percent: 85 },
+      { name: "Pandas", level: "Advanced", percent: 90 },
+      { name: "Matplotlib", level: "Advanced", percent: 85 },
+      { name: "Seaborn", level: "Advanced", percent: 85 },
+      { name: "Scikit-Learn", level: "Intermediate", percent: 65 },
+    ],
+  },
+  {
+    title: "Web Development",
+    skills: [
+      { name: "HTML & CSS", level: "Advanced", percent: 85 },
+      { name: "JavaScript", level: "Intermediate", percent: 65 },
+    ],
+  },
+  {
+    title: "Tools & Platforms",
+    skills: [
+      { name: "Git & GitHub", level: "Advanced", percent: 85 },
+      { name: "Microsoft Excel", level: "Advanced", percent: 90 },
+      { name: "Power BI", level: "Intermediate", percent: 70 },
+      { name: "MySQL", level: "Advanced", percent: 80 },
+    ],
+  },
+  {
+    title: "Soft Skills",
+    skills: [
+      { name: "Problem Solving", level: "Advanced", percent: 90 },
+      { name: "Project Management", level: "Advanced", percent: 85 },
+      { name: "Adaptability", level: "Advanced", percent: 90 },
+    ],
+  },
+];
+
+const Skills = () => {
+  return (
+    <section id="skills" className="py-24">
+      <div className="section-container">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-4"
+        >
+          <p className="section-label">Capabilities</p>
+          <h2 className="section-title mb-3">TECH STACK</h2>
+          <p className="text-muted-foreground max-w-xl text-sm">
+            A curated selection of technologies and methodologies I've mastered to build data-driven solutions.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 gap-6 mt-12">
+          {skillCategories.map((cat, ci) => (
+            <motion.div
+              key={cat.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: ci * 0.08 }}
+              className="card-dark hover-card p-6"
+            >
+              <p className="section-label mb-1">Expertise</p>
+              <h3 className="text-base font-semibold text-foreground mb-5">{cat.title}</h3>
+              <div className="flex flex-col gap-4">
+                {cat.skills.map((skill) => (
+                  <div key={skill.name}>
+                    <div className="flex items-center justify-between mb-1.5">
+                      <span className="text-sm text-foreground">{skill.name}</span>
+                      <span className="text-xs text-muted-foreground">{skill.level}</span>
+                    </div>
+                    <div className="progress-bar-bg">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.percent}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8, delay: 0.2 }}
+                        className="progress-bar-fill"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Skills;
