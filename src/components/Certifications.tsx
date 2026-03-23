@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-// IMPORT YOUR ACTUAL FILE NAMES
+// MAKE SURE THESE FILE NAMES EXACTLY MATCH YOUR assets FOLDER
 import cert1 from "@/assets/courseradigital.png";
 import cert2 from "@/assets/courserasoftware.png";
 import cert3 from "@/assets/forage.png";
