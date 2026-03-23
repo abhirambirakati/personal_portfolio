@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+// IMPORT FILES (MATCH YOUR ACTUAL FILE NAMES)
 import cert1 from "@/assets/courseradigital.jpeg";
 import cert2 from "@/assets/courserasoftware.jpeg";
 import cert3 from "@/assets/forage.pdf";
@@ -37,6 +38,7 @@ const Certifications = () => {
     <section id="certifications" className="py-24">
       <div className="section-container">
 
+        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -51,6 +53,7 @@ const Certifications = () => {
           </p>
         </motion.div>
 
+        {/* GRID */}
         <div className="grid sm:grid-cols-2 gap-6">
           {certifications.map((cert, i) => {
             const isPDF = cert.file.endsWith(".pdf");
@@ -64,27 +67,39 @@ const Certifications = () => {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="card-dark p-4 rounded-xl overflow-hidden group"
               >
-                <div className="overflow-hidden rounded-lg mb-3">
-                  {isPDF ? (
-                    <a
-                      href={cert.file}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full h-40 flex items-center justify-center bg-muted rounded-lg hover:bg-secondary transition"
-                    >
-                      <p className="text-xs text-muted-foreground">
-                        View Certificate (PDF)
-                      </p>
-                    </a>
-                  ) : (
-                    <img
-                      src={cert.file}
-                      alt={cert.title}
-                      className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
-                  )}
-                </div>
+                {/* CLICKABLE IMAGE / PDF */}
+                <a
+                  href={cert.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="overflow-hidden rounded-lg mb-3 relative">
+                    
+                    {isPDF ? (
+                      <div className="w-full h-40 flex items-center justify-center bg-muted rounded-lg hover:bg-secondary transition">
+                        <p className="text-xs text-muted-foreground">
+                          📄 Click to View Certificate
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <img
+                          src={cert.file}
+                          alt={cert.title}
+                          className="w-full h-40 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+                        />
 
+                        {/* HOVER OVERLAY */}
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center text-white text-xs transition">
+                          View Certificate
+                        </div>
+                      </>
+                    )}
+
+                  </div>
+                </a>
+
+                {/* TEXT */}
                 <h3 className="text-sm font-semibold text-foreground mb-1">
                   {cert.title}
                 </h3>
@@ -97,6 +112,7 @@ const Certifications = () => {
                   {cert.date}
                 </p>
 
+                {/* BADGE */}
                 <span className="inline-block mt-3 text-[10px] px-2 py-1 rounded-full bg-secondary text-foreground">
                   Verified
                 </span>
