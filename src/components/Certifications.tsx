@@ -1,10 +1,9 @@
 import { motion } from "framer-motion";
 
-// IMPORT FILES (MAKE SURE EXTENSIONS MATCH EXACTLY)
-import cert1 from "@/assets/courseradigital.png";
-import cert2 from "@/assets/courserasoftware.png";
-import cert3 from "@/assets/forage.pdf"; // PDF file
-import cert4 from "@/assets/udemyenglish.png";
+import cert1 from "@/assets/courseradigital.jpeg";
+import cert2 from "@/assets/courserasoftware.jpeg";
+import cert3 from "@/assets/forage.pdf";
+import cert4 from "@/assets/udemyenglish.jpg";
 
 const certifications = [
   {
@@ -38,7 +37,6 @@ const Certifications = () => {
     <section id="certifications" className="py-24">
       <div className="section-container">
 
-        {/* HEADER */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -53,7 +51,6 @@ const Certifications = () => {
           </p>
         </motion.div>
 
-        {/* GRID */}
         <div className="grid sm:grid-cols-2 gap-6">
           {certifications.map((cert, i) => {
             const isPDF = cert.file.endsWith(".pdf");
@@ -67,7 +64,6 @@ const Certifications = () => {
                 transition={{ duration: 0.4, delay: i * 0.1 }}
                 className="card-dark p-4 rounded-xl overflow-hidden group"
               >
-                {/* IMAGE OR PDF */}
                 <div className="overflow-hidden rounded-lg mb-3">
                   {isPDF ? (
                     <a
@@ -89,7 +85,6 @@ const Certifications = () => {
                   )}
                 </div>
 
-                {/* TEXT */}
                 <h3 className="text-sm font-semibold text-foreground mb-1">
                   {cert.title}
                 </h3>
@@ -102,7 +97,6 @@ const Certifications = () => {
                   {cert.date}
                 </p>
 
-                {/* BADGE */}
                 <span className="inline-block mt-3 text-[10px] px-2 py-1 rounded-full bg-secondary text-foreground">
                   Verified
                 </span>
